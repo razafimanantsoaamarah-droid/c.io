@@ -11,6 +11,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 unsigned int ft_strlcat(char *dest, const char *src, unsigned int size)
 {

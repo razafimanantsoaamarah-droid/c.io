@@ -11,6 +11,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 unsigned int ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
     unsigned int src_len = 0;
