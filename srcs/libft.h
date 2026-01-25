@@ -6,7 +6,7 @@
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:02:40 by maherraz          #+#    #+#             */
-/*   Updated: 2026/01/25 05:09:24 by maherraz         ###   ########.fr       */
+/*   Updated: 2026/01/25 05:43:25 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ char			*ft_strrchr(const char *s, int c);
 
 char			*ft_strnstr(const char *haystack, const char *needle,
 					unsigned int len);
+
+char			*ft_strdup(const char *s1);
 #endif
