@@ -6,7 +6,7 @@
 #    By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 16:58:08 by maherraz          #+#    #+#              #
-#    Updated: 2026/01/25 03:41:22 by maherraz         ###   ########.fr        #
+#    Updated: 2026/01/25 05:16:04 by maherraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all test clean fclean re
+.PHONY: all clean fclean re
