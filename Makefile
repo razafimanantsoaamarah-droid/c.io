@@ -6,7 +6,7 @@
 #    By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 16:58:08 by maherraz          #+#    #+#              #
-#    Updated: 2026/02/06 04:49:36 by maherraz         ###   ########.fr        #
+#    Updated: 2026/02/06 05:30:51 by maherraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ STRING_FUNCS = strlen strchr strrchr strncmp strnstr strlcat strdup strlcpy
 MEMORY_FUNCS = memset bzero memcpy memmove memchr memcmp calloc
 CTYPE_FUNCS = isalpha isdigit isalnum isascii isprint toupper tolower
 CONVERSION_FUNCS = atoi
-PUT_FUNCS = putchar_fd putstr_fd putendl_fd putnbr_fd
+PUT_FUNCS =
 
 FILES = $(STRING_FUNCS) $(MEMORY_FUNCS) $(CTYPE_FUNCS) $(CONVERSION_FUNCS) $(PUT_FUNCS)
 SRCS = $(addprefix ft_, $(addsuffix .c, $(FILES)))
