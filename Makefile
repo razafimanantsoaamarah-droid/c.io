@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+         #
+#    By: maherraz <maherraz@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 16:58:08 by maherraz          #+#    #+#              #
-#    Updated: 2026/02/06 05:30:51 by maherraz         ###   ########.fr        #
+#    Updated: 2026/02/07 21:10:03 by maherraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-STRING_FUNCS = strlen strchr strrchr strncmp strnstr strlcat strdup strlcpy
-MEMORY_FUNCS = memset bzero memcpy memmove memchr memcmp calloc
-CTYPE_FUNCS = isalpha isdigit isalnum isascii isprint toupper tolower
-CONVERSION_FUNCS = atoi
+STRING_FUNCS =
+MEMORY_FUNCS =
+CTYPE_FUNCS = isalpha isdigit isalnum isascii isprint
+CONVERSION_FUNCS = tolower toupper
 PUT_FUNCS =
 
 FILES = $(STRING_FUNCS) $(MEMORY_FUNCS) $(CTYPE_FUNCS) $(CONVERSION_FUNCS) $(PUT_FUNCS)
