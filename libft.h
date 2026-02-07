@@ -6,11 +6,11 @@
 /*   By: maherraz <maherraz@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:40:11 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/07 19:48:24 by maherraz         ###   ########.fr       */
+/*   Updated: 2026/02/07 19:49:50 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(unsigned int c);
+int ft_isalpha(int c);
 int	ft_isdigit(int c);
 int	ft_isalnum(unsigned int c);
 int	ft_isascii(unsigned int c);
