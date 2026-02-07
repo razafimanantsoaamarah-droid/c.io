@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/07 19:39:31 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/07 19:49:10 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/07 19:45:57 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/07 19:47:03 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isdigit(unsigned int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'B'))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (c >= '0' && c <= '9');
 }
