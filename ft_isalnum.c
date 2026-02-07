@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/07 19:40:11 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/07 19:52:48 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/07 19:51:56 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/07 19:56:34 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-int	ft_toupper(int c);
-int	ft_tolower(int c);
+#include "libft.h"
+
+int	ft_isalnum(int c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0'
+			&& c <= '9'))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
