@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   test_substr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 11:06:42 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/09 11:06:43 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/10 06:35:34 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/10 06:37:14 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalnum(int c)
+#include "../libft.h"
+void	test_substr(void)
 {
-	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	char	*str;
+
+	str = ft_substr("Hello World", 6, 5);
+	printf("ft_substr: ");
+	if (str && strcmp(str, "World") == 0)
+	{
+		free(str);
+		printf("✓\n");
+	}
+	else
+		printf("✗\n");
+}
+
+int	main(void)
+{
+	test_substr();
+	return (1);
 }

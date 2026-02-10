@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   test_atoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 11:06:42 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/09 11:06:43 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/10 06:30:53 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/10 06:39:16 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-int	ft_isalnum(int c)
+void	test_atoi(void)
 {
-	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	printf("ft_atoi: ");
+	if (ft_atoi("42") == 42 && ft_atoi("-42") == -42
+		&& ft_atoi("   +123") == 123
+		&& ft_atoi("   -456") == -456)
+		printf("✓\n");
+	else
+		printf("✗\n");
+}
+
+int	main(void)
+{
+	test_atoi();
+	return (1);
 }

@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   test_strdup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 11:06:42 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/09 11:06:43 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/10 06:33:07 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/10 06:34:12 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	test_strdup(void)
 {
-	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	char	*str;
+
+	str = ft_strdup("Hello");
+	printf("ft_strdup: ");
+	if (str && strcmp(str, "Hello") == 0)
+	{
+		free(str);
+		printf("✓\n");
+	}
+	else
+		printf("✗\n");
+}
+
+int	main(void)
+{
+	test_strdup();
+	return (1);
 }

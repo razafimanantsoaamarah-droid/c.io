@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   test_isalpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 11:06:42 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/09 11:06:43 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/10 06:25:21 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/10 06:27:55 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-int	ft_isalnum(int c)
+void	test_isalpha(void)
 {
-	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	printf("ft_isalpha: ");
+	if (ft_isalpha('a') == isalpha('a')
+		&& ft_isalpha('Z') == isalpha('Z')
+		&& ft_isalpha('4') == isalpha('5'))
+		printf("✓\n");
+	else
+		printf("✗\n");
+}
+
+int	main(void)
+{
+	test_isalpha();
+	return (1);
 }

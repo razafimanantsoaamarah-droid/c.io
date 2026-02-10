@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   test_basic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 11:06:42 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/09 11:06:43 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/10 05:47:50 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/10 06:37:58 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-int	ft_isalnum(int c)
+void	test_strjoin(void)
 {
-	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	char	*str;
+
+	printf("ft_strjoin: ");
+	str = ft_strjoin("Hello ", "World");
+	if (str && strcmp(str, "Hello World") == 0)
+	{
+		free(str);
+		printf("✓\n");
+	}
+	else
+		printf("✗\n");
+}
+
+int	main(void)
+{
+	test_strjoin();
+	return (0);
 }
