@@ -1,0 +1,92 @@
+name: Libft Project CI
+
+on:
+  push:
+    branches: [ main, master, 'feat/**' ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  PROJECT_NAME: "libft"
+  LIB_NAME: "libft.a"
+
+jobs:
+  check-quality:
+    name: Norminette & Compilation
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupération du code
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Setup Python (Action officielle plus rapide que apt-get)
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. Installation Norminette
+      - name: Install Norminette 42
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install norminette
+
+      # 4. Vérification de la norme
+      - name: Run Norminette
+        id: norm-step
+        run: |
+          echo "🔍 Vérification de la norme..."
+          FILES=$(find . -name "*.c" -o -name "*.h" | grep -v "./.git")
+          if [ -z "$FILES" ]; then
+            echo "❌ Aucun fichier source trouvé !"
+            exit 1
+          fi
+          norminette $FILES
+          echo "✅ Norme respectée."
+
+      # 5. Tests du Makefile (Le cœur de l'automatisation)
+      - name: Test Makefile Compilation
+        id: make-step
+        run: |
+          echo "🛠️ Début des tests de compilation..."
+          
+          # Vérification de l'existence
+          if [ ! -f "Makefile" ]; then echo "❌ Makefile manquant !"; exit 1; fi
+
+          # Test All
+          echo "Test: make all..."
+          make all
+          if [ ! -f "$LIB_NAME" ]; then echo "❌ $LIB_NAME non généré !"; exit 1; fi
+
+          # Test Bonus
+          echo "Test: make bonus..."
+          make bonus || echo "ℹ️ Pas de règle bonus ou échec (optionnel)"
+
+          # Test Clean
+          echo "Test: make clean..."
+          make clean
+          
+          # Test Fclean
+          echo "Test: make fclean..."
+          make fclean
+          if [ -f "$LIB_NAME" ]; then echo "❌ $LIB_NAME toujours présent après fclean !"; exit 1; fi
+
+          # Test Re (Critique pour 42)
+          echo "Test: make re..."
+          make re
+          if [ ! -f "$LIB_NAME" ]; then echo "❌ make re n'a pas recréé la bibliothèque !"; exit 1; fi
+          
+          echo "✅ Tests de compilation réussis."
+
+      # 6. Rapport Final
+      - name: DevOps Final Report
+        if: always()
+        run: |
+          echo "=========================================="
+          echo "🚀 RAPPORT FINAL POUR ${{ env.PROJECT_NAME }}"
+          echo "Norminette  : ${{ steps.norm-step.outcome }}"
+          echo "Compilation : ${{ steps.make-step.outcome }}"
+          echo "=========================================="
