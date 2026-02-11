@@ -1,10 +1,7 @@
-
-```markdown
 *This project has been created as part of the 42 curriculum by maherraz.*
 
 # Libft — Your First C Library
 
----
 
 ## Description
 
@@ -12,14 +9,11 @@
 library functions alongside custom utilities. This library serves as a personal toolkit for 
 all subsequent C projects at 42, providing reliable, well-tested functions for string 
 manipulation, memory management, and input/output operations.
-
 The project demonstrates:
 - Deep understanding of C standard library internals
 - Proper memory allocation and deallocation
 - Defensive programming and edge case handling
 - Clean, norm-compliant code organization
-
----
 
 ## Library Contents
 
@@ -50,8 +44,6 @@ Custom utilities that extend beyond the standard library.
 | `ft_putstr_fd`  | Writes a string to a file descriptor                         |
 | `ft_putendl_fd` | Writes a string followed by a newline to a file descriptor   |
 | `ft_putnbr_fd`  | Writes an integer to a file descriptor                       |
-
----
 
 ## Project Structure
 
@@ -87,7 +79,6 @@ make fclean
 # Rebuild from scratch
 make re
 ```
-
 The output will be `libft.a` — a static library ready for linking.
 
 ### Integration into Your Projects
@@ -110,8 +101,6 @@ norminette ft_*.c libft.h
 
 All code strictly follows the 42 Norm (no more than 25 lines per function, 5 functions per file, etc.).
 
----
-
 ## Technical Implementation Details
 
 ### Memory Management
@@ -130,7 +119,6 @@ All code strictly follows the 42 Norm (no more than 25 lines per function, 5 fun
 - `ft_split` uses a single pass for counting and allocation
 - `ft_strjoin` pre-calculates lengths to avoid reallocation
 
----
 
 ## Testing Strategy
 
