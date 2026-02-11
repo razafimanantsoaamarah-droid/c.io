@@ -1,204 +1,245 @@
-*This project has been created as part of the 42 curriculum by maherraz.*
-
 # Libft — Your First C Library
 
+*This project has been created as part of the 42 curriculum by maherraz.*
+
+---
+
+## Table des matières
+1. [Description](#description)
+2. [Library Contents](#library-contents)
+   - [Part 1 — Libc Functions](#part-1--libc-functions)
+   - [Part 2 — Additional Functions](#part-2--additional-functions)
+   - [Part 3 — Linked List Functions (Bonus)](#part-3--linked-list-functions-bonus)
+3. [Instructions](#instructions)
+   - [Compilation](#compilation)
+   - [Installation](#installation)
+   - [Utilisation](#utilisation)
+4. [Resources](#resources)
+   - [Documentation Officielle](#documentation-officielle)
+   - [Tests & Validation](#tests--validation)
+   - [AI Usage Disclosure](#ai-usage-disclosure)
+
+---
 
 ## Description
 
-**Libft** is the foundational project of the 42 curriculum — a reimplementation of standard C 
-library functions alongside custom utilities. This library serves as a personal toolkit for 
-all subsequent C projects at 42, providing reliable, well-tested functions for string 
-manipulation, memory management, and input/output operations.
-The project demonstrates:
-- Deep understanding of C standard library internals
-- Proper memory allocation and deallocation
-- Defensive programming and edge case handling
-- Clean, norm-compliant code organization
+**Libft** est le projet fondateur du cursus 42 — une réimplémentation des fonctions standards de la librairie C, accompagnée d'utilitaires personnalisés. Cette bibliothèque constitue la **boîte à outils personnelle** de chaque étudiant pour l'ensemble des projets C à venir.
 
-### Library Contents
+**Objectifs pédagogiques :**
+- Comprendre le fonctionnement interne des fonctions standards
+- Maîtriser la gestion manuelle de la mémoire (`malloc`/`free`)
+- Manipuler les pointeurs et les tableaux
+- Implémenter des structures de données (listes chaînées)
+- Produire du code conforme à la **Norminette** (style 42)
 
-#### Part 1 — Libc Functions
-Reimplementations of standard C library functions with identical behavior and prototypes.
+---
 
-| Category                   | Functions                                                                                                   |
-|----------------------------|-------------------------------------------------------------------------------------------------------------|
-| **Character checks**       | `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`                                        |
-| **Character transforms**   | `ft_toupper`, `ft_tolower`                                                                                  |
-| **String operations**      | `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strdup` |
-| **Memory operations**      | `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`                                |
-| **Conversions/Allocation** | `ft_atoi`, `ft_calloc`                                                                                      |
+## Library Contents
 
-#### Part 2 — Additional Functions
-Custom utilities that extend beyond the standard library.
+### Partie 1 — Fonctions Libc
 
-| Function        | Description                                                  |
-|-----------------|--------------------------------------------------------------|
-| `ft_substr`     | Allocates and returns a substring from a given string        |
-| `ft_strjoin`    | Concatenates two strings into a new allocation               |
-| `ft_strtrim`    | Removes specified characters from both ends of a string      |
-| `ft_split`      | Splits a string into an array of words using a delimiter     |
-| `ft_itoa`       | Converts an integer to a null-terminated string              |
-| `ft_strmapi`    | Applies a function to each character, creating a new string  |
-| `ft_striteri`   | Applies a function to each character (in-place modification) |
-| `ft_putchar_fd` | Writes a character to a file descriptor                      |
-| `ft_putstr_fd`  | Writes a string to a file descriptor                         |
-| `ft_putendl_fd` | Writes a string followed by a newline to a file descriptor   |
-| `ft_putnbr_fd`  | Writes an integer to a file descriptor                       |
+| Catégorie | Fonctions |
+|-----------|-----------|
+| **Tests de caractères** | `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint` |
+| **Transformation** | `ft_toupper`, `ft_tolower` |
+| **Manipulation de chaînes** | `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strdup` |
+| **Manipulation mémoire** | `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp` |
+| **Conversion/Allocation** | `ft_atoi`, `ft_calloc` |
 
-#### Project Structure
+---
 
-    ```
-    .
-    ├── libft.h                 # Header with all function prototypes
-    ├── Makefile               # Compilation rules
-    ├── ft_*.c                # 42 source files (one function per file)
-    ├── README.md             # This documentation
-    ```
+### Partie 2 — Fonctions Additionnelles
+
+| Fonction | Prototype | Description |
+|----------|-----------|-------------|
+| `ft_substr` | `char *ft_substr(char const *s, unsigned int start, size_t len)` | Extrait une sous-chaîne |
+| `ft_strjoin` | `char *ft_strjoin(char const *s1, char const *s2)` | Concatène deux chaînes |
+| `ft_strtrim` | `char *ft_strtrim(char const *s1, char const *set)` | Supprime les caractères spécifiés en début/fin |
+| `ft_split` | `char **ft_split(char const *s, char c)` | Découpe une chaîne en tableau de mots |
+| `ft_itoa` | `char *ft_itoa(int n)` | Convertit un entier en chaîne |
+| `ft_strmapi` | `char *ft_strmapi(char const *s, char (*f)(unsigned int, char))` | Applique une fonction à chaque caractère (nouvelle allocation) |
+| `ft_striteri` | `void ft_striteri(char *s, void (*f)(unsigned int, char*))` | Applique une fonction à chaque caractère (modification sur place) |
+| `ft_putchar_fd` | `void ft_putchar_fd(char c, int fd)` | Écrit un caractère sur un descripteur de fichier |
+| `ft_putstr_fd` | `void ft_putstr_fd(char *s, int fd)` | Écrit une chaîne sur un descripteur de fichier |
+| `ft_putendl_fd` | `void ft_putendl_fd(char *s, int fd)` | Écrit une chaîne + newline sur un descripteur |
+| `ft_putnbr_fd` | `void ft_putnbr_fd(int n, int fd)` | Écrit un entier sur un descripteur |
+
+---
+
+### Partie 3 — Listes Chaînées (Bonus)
+
+**Structure utilisée :**
+```c
+typedef struct s_list
+{
+    void            *content;
+    struct s_list   *next;
+} t_list;
+```
+
+| Fonction | Description |
+|----------|-------------|
+| `ft_lstnew` | Crée un nouvel élément |
+| `ft_lstadd_front` | Ajoute un élément en tête de liste |
+| `ft_lstsize` | Compte le nombre d'éléments |
+| `ft_lstlast` | Retourne le dernier élément |
+| `ft_lstadd_back` | Ajoute un élément en fin de liste |
+| `ft_lstdelone` | Libère le contenu d'un élément |
+| `ft_lstclear` | Supprime et libère toute la liste |
+| `ft_lstiter` | Itère et applique une fonction sur chaque élément |
+| `ft_lstmap` | Crée une nouvelle liste en appliquant une fonction |
 
 ---
 
 ## Instructions
 
-### Prerequisites
-- GCC or Clang compiler
-- GNU Make
-- Norminette (for code style verification)
-
 ### Compilation
 
 ```bash
-# Build the library (mandatory part only)
+# Compilation de la librairie (partie obligatoire)
 make
 
-# Clean object files
+# Compilation avec les bonus
+make bonus
+
+# Nettoyage des fichiers objets
 make clean
 
-# Full clean (objects + library)
+# Nettoyage complet (objets + librairie)
 make fclean
 
-# Rebuild from scratch
+# Recompilation intégrale
 make re
 ```
-The output will be `libft.a` — a static library ready for linking.
 
-### Integration into Your Projects
+**Flags de compilation :** `-Wall -Wextra -Werror`
 
-1. Copy `libft.a` and `libft.h` to your project directory
-2. Include the header:
-   ```c
-   #include "libft.h"
-   ```
-3. Link the library during compilation:
-   ```bash
-   cc -Wall -Wextra -Werror your_program.c libft.a -o your_program
-   ```
+### Installation
 
-### Code Style Verification
-
+1. Clonez le dépôt :
 ```bash
-norminette ft_*.c libft.h
+git clone <votre-repo> libft
+cd libft
 ```
 
-All code strictly follows the 42 Norm (no more than 25 lines per function, 5 functions per file, etc.).
+2. Compilez la librairie :
+```bash
+make
+```
 
-### Technical Implementation Details
+3. Vérifiez la conformité Norminette :
+```bash
+norminette
+```
 
-#### Memory Management
-- All allocated memory is properly freed on error paths
-- `ft_calloc` implements overflow protection using `SIZE_MAX / size` check
-- String functions guarantee null-termination when size > 0
+### Utilisation dans vos projets
 
-#### Edge Cases Handled
-- Empty strings (`""`) return appropriate empty results
-- NULL pointers return NULL where specified
-- Zero-length operations are no-ops
-- Integer limits (`INT_MIN`, `INT_MAX`) in `ft_itoa` and `ft_atoi`
+1. **Inclure le header :**
+```c
+#include "libft.h"
+```
 
-#### Performance Considerations
-- `ft_memmove` handles overlapping regions with forward/backward copy
-- `ft_split` uses a single pass for counting and allocation
-- `ft_strjoin` pre-calculates lengths to avoid reallocation
+2. **Compiler avec la librairie :**
+```bash
+gcc -Wall -Wextra -Werror votre_programme.c libft.a -o votre_programme
+```
 
+3. **Exemple d'utilisation :**
+```c
+#include "libft.h"
+#include <stdio.h>
 
-### Testing Strategy
-
-While no test suite is included in the submission, the following approach was used:
-
-1. **Comparative testing**: Results compared against original libc functions
-2. **Edge case validation**: Boundary conditions, zero-length, NULL inputs
-3. **Memory leak detection**: Valgrind verification for all allocation paths
-4. **Stress testing**: Large inputs and repeated allocations
-
-*Recommended testers: libftTester, libft-war-machine, 42-libft-tester*
+int main(void)
+{
+    char *str = ft_strdup("Hello 42!");
+    char **words = ft_split("Libft is awesome", ' ');
+    
+    printf("%s\n", str);
+    
+    int i = 0;
+    while (words[i])
+    {
+        printf("Word %d: %s\n", i, words[i]);
+        free(words[i]);
+        i++;
+    }
+    free(words);
+    free(str);
+    
+    return (0);
+}
+```
 
 ---
 
 ## Resources
 
-### Official Documentation
-- [C Standard Library](https://en.cppreference.com/w/c) — cppreference.com
-- [GNU C Library Manual](https://www.gnu.org/software/libc/manual/) — glibc documentation
-- `man 3` pages for each implemented function
+### Documentation Officielle
 
-### Recommended Reading
-- **"The C Programming Language"** — Kernighan & Ritchie (2nd Edition)
-- **"Understanding and Using C Pointers"** — Richard Reese
-- **Beej's Guide to C Programming** — https://beej.us/guide/bgc/
+| Source | Description |
+|--------|-------------|
+| `man 3` | Pages de manuel des fonctions libc |
+| [Norminette](https://github.com/42School/norminette) | Outil de vérification du style 42 |
+| [42 Subjects](https://github.com/42School) | Sujets officiels du cursus |
+| [GNU C Library](https://www.gnu.org/software/libc/manual/) | Documentation complète glibc |
 
-### 42 Network Resources
-- 42 Intra — Project subject and forums
-- Peer-to-peer learning sessions
-- Slack community discussions
+### Tests & Validation
+
+Plusieurs testeurs tiers sont disponibles pour valider votre librairie :
+
+```bash
+# Testeur Tripouille (recommandé)
+git clone https://github.com/Tripouille/libftTester.git
+cd libftTester
+make m
+
+# Test avec Valgrind (détection fuites mémoire)
+make m valgrind   # ou manuellement :
+valgrind --leak-check=full --show-leak-kinds=all ./a.out
+```
 
 ### AI Usage Disclosure
 
-In accordance with 42's AI policy, this project was developed with the following AI usage boundaries:
+Conformément aux **Instructions IA** du sujet v19.1 et à la politique de l'école 42, l'utilisation de l'IA a été strictement encadrée :
 
-**✅ Permitted AI assistance:**
-- Formatting and structure of this README.md
-- Proofreading and grammar correction
-- Researching function specifications and edge cases
+| Tâche | Outil IA | Usage |
+|-------|----------|-------|
+| **Structure du README** | Gemini | Mise en page, formatage markdown selon les standards du sujet |
+| **Interprétation des tests** | Gemini | Analyse des logs de testeurs (notamment les résultats `MOK`) |
+| **Debugging** | Gemini | Identification des patterns de fuites mémoire et propositions de correctifs |
+| **Validation normative** | - | Aucune utilisation - respect strict de la Norminette |
 
-**❌ AI was NOT used for:**
-- Writing or generating C code
-- Debugging or fixing implementation errors
-- Designing algorithms or logic
-- Generating test cases
+**Engagement personnel :**
 
-All function implementations, memory management logic, and problem-solving were performed manually 
-to ensure genuine understanding of C programming concepts. This approach aligns with 42's 
-pedagogical philosophy of building strong foundational skills through deliberate practice and 
-peer learning.
+> *"Je certifie que l'intégralité du code présent dans cette librairie a été écrite manuellement. Aucune fonction, aucun algorithme n'a été généré par intelligence artificielle. L'IA a uniquement servi d'outil de documentation et de relecture, conformément à la philosophie de 42 qui place l'effort intellectuel et la compréhension approfondie au cœur de l'apprentissage."*
+
+— **maherraz**, 42 Student
 
 ---
 
-## Learning Outcomes
+## Validation & Peer-Evaluation
 
-Through this project, the following competencies were developed:
+Ce projet est soumis à une **évaluation par les pairs** selon les critères suivants :
 
-| Skill                   | Applied In                                            |
-|-------------------------|-------------------------------------------------------|
-| **Pointer arithmetic**  | All string/memory functions                           |
-| **Dynamic allocation**  | `calloc`, `strdup`, `substr`, `join`, `split`, `itoa` |
-| **Algorithm design**    | `split` parsing, `itoa` conversion                    |
-| **Error handling**      | Allocation failures, NULL checks                      |
-| **Makefile automation** | Compilation rules, dependency tracking                |
-| **Code organization**   | Header files, static helper functions                 |
+✅ **Fonctionnalités** — Toutes les fonctions doivent produire le résultat attendu  
+✅ **Gestion mémoire** — Aucune fuite mémoire tolérée  
+✅ **Norme** — Code conforme à la Norminette  
+✅ **Makefile** — Règles `NAME`, `all`, `clean`, `fclean`, `re`, `bonus`  
+✅ **Robustesse** — Protection contre les échecs d'allocation
 
 ---
 
-## Author
+## 📄 License
 
-**maherraz** — 42 Student  
-Project completed: February 2026  
----
-
-## Acknowledgments
-
-- 42 School for the rigorous curriculum
-- Fellow students for peer reviews and collaborative debugging
-- The open-source C community for extensive documentation
+Projet pédagogique réalisé dans le cadre du cursus de l'**École 42**. Libre d'utilisation pour tout étudiant du réseau.
 
 ---
 
-*This project is part of the 42 core curriculum and is not intended for commercial use.*
+<p align="center">
+  <i>"Le chemin est plus important que la destination."</i><br>
+  <b>— 42 AI Instructions</b>
+</p>
+
+<p align="center">
+  <a href="#libft--your-first-c-library">⬆ Retour en haut</a>
+</p>
