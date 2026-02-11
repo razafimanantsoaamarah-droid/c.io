@@ -15,9 +15,9 @@ The project demonstrates:
 - Defensive programming and edge case handling
 - Clean, norm-compliant code organization
 
-## Library Contents
+### Library Contents
 
-### Part 1 — Libc Functions
+#### Part 1 — Libc Functions
 Reimplementations of standard C library functions with identical behavior and prototypes.
 
 | Category                   | Functions                                                                                                   |
@@ -28,7 +28,7 @@ Reimplementations of standard C library functions with identical behavior and pr
 | **Memory operations**      | `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`                                |
 | **Conversions/Allocation** | `ft_atoi`, `ft_calloc`                                                                                      |
 
-### Part 2 — Additional Functions
+#### Part 2 — Additional Functions
 Custom utilities that extend beyond the standard library.
 
 | Function        | Description                                                  |
@@ -45,7 +45,7 @@ Custom utilities that extend beyond the standard library.
 | `ft_putendl_fd` | Writes a string followed by a newline to a file descriptor   |
 | `ft_putnbr_fd`  | Writes an integer to a file descriptor                       |
 
-## Project Structure
+#### Project Structure
 
     ```
     .
@@ -101,26 +101,26 @@ norminette ft_*.c libft.h
 
 All code strictly follows the 42 Norm (no more than 25 lines per function, 5 functions per file, etc.).
 
-## Technical Implementation Details
+### Technical Implementation Details
 
-### Memory Management
+#### Memory Management
 - All allocated memory is properly freed on error paths
 - `ft_calloc` implements overflow protection using `SIZE_MAX / size` check
 - String functions guarantee null-termination when size > 0
 
-### Edge Cases Handled
+#### Edge Cases Handled
 - Empty strings (`""`) return appropriate empty results
 - NULL pointers return NULL where specified
 - Zero-length operations are no-ops
 - Integer limits (`INT_MIN`, `INT_MAX`) in `ft_itoa` and `ft_atoi`
 
-### Performance Considerations
+#### Performance Considerations
 - `ft_memmove` handles overlapping regions with forward/backward copy
 - `ft_split` uses a single pass for counting and allocation
 - `ft_strjoin` pre-calculates lengths to avoid reallocation
 
 
-## Testing Strategy
+### Testing Strategy
 
 While no test suite is included in the submission, the following approach was used:
 
