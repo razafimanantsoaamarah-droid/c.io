@@ -6,7 +6,7 @@
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:17:18 by maherraz          #+#    #+#             */
-/*   Updated: 2026/01/25 04:56:30 by maherraz         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:28:04 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return ((char *)s);
-	return (0);
+	return (NULL);
 }

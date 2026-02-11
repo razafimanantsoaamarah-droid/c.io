@@ -6,7 +6,7 @@
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 11:06:42 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/09 11:06:43 by maherraz         ###   ########.fr       */
+/*   Updated: 2026/02/11 13:12:27 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a'
-			&& c <= 'z'));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

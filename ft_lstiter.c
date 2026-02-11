@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strlen.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 06:28:38 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/10 06:36:34 by maherraz         ###   ########.fr       */
+/*   Created: 2026/02/11 11:25:39 by maherraz          #+#    #+#             */
+/*   Updated: 2026/02/11 13:18:43 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-void	test_strlen(void)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	printf("ft_strlen: ");
-	if (ft_strlen("") == 0 && ft_strlen("Hello") == 5)
-		printf("✓\n");
-	else
-}
-
-int	main(void)
-{
-	test_strlen()
-	return (1);
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst != NULL)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

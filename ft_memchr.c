@@ -6,17 +6,16 @@
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 02:19:54 by maherraz          #+#    #+#             */
-/*   Updated: 2026/01/25 04:38:07 by maherraz         ###   ########.fr       */
+/*   Updated: 2026/02/11 09:58:36 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
-void	*ft_memchr(const void *s, int c, unsigned int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*str;
-	unsigned int		i;
+	size_t				i;
 
 	str = (const unsigned char *)s;
 	i = 0;

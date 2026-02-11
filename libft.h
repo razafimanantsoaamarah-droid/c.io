@@ -6,7 +6,7 @@
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 10:02:40 by maherraz          #+#    #+#             */
-/*   Updated: 2026/02/10 06:05:10 by maherraz         ###   ########.fr       */
+/*   Updated: 2026/02/11 10:35:39 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <ctype.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -55,7 +56,6 @@ char				*ft_itoa(int n);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);

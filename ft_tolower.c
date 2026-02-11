@@ -6,13 +6,13 @@
 /*   By: maherraz <maherraz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:22:59 by maherraz          #+#    #+#             */
-/*   Updated: 2026/01/25 05:06:01 by maherraz         ###   ########.fr       */
+/*   Updated: 2026/02/11 09:41:10 by maherraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
